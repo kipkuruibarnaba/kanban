@@ -42,8 +42,9 @@
                                 
                                     <button
                             type="button"
-                            id="btn-add-columns"
+                            id="btn-remove-columns"
                             class="btn btn-sm btn-danger"
+                            value= ${ele.id}
                         >
                            X
                         </button>
@@ -130,15 +131,36 @@
                 }
             });
 
-        };
-        const btnShowCard = document.querySelector('#total-count');
-    console.log(btnShowCard)
-    if(btnShowCard){
-    btnShowCard.addEventListener('click', function(e) {
-            e.preventDefault();
-     console.log('hello')
+
+    const btnRemoveColumn = document.querySelector('#btn-remove-columns');
+    btnRemoveColumn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const requestBody = {
+                columnid: btnRemoveColumn.value
+            }
+            axios.delete('/remove_column_url/'+ btnRemoveColumn.value)
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+            location.reload();
+
         });
-    }
+        };
+    //     const btnShowCard = document.querySelector('#total-count');
+    // console.log(btnShowCard)
+    // if(btnShowCard){
+    // btnShowCard.addEventListener('click', function(e) {
+    //         e.preventDefault();
+    //  console.log('hello')
+    //     });
+    // }
+
+
+
+
     </script>
 </body>
 

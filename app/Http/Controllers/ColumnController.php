@@ -85,4 +85,16 @@ public function edit(Request $request){
          ]);
         }
     }
+
+    public function removecolumn(Request $request,$id){
+        $column = Column::find($id);
+        if($column){
+            $card = Card::where('column_id',$column->id)->delete();
+            $column= Column::where('id', $column->id)->delete();
+            return['message'=>'Column deleted Successfully'];
+        } else{
+            return['message'=>'Failed to delete'];
+        }
+}
+    
 }

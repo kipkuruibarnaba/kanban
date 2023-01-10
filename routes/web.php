@@ -23,3 +23,4 @@ Route::post('/load_items', [ColumnController::class, 'getColumns']);
 Route::post('/add_column_url', [ColumnController::class, 'store']);
 Route::post('/add_card_url', [ColumnController::class, 'storecard']);
 Route::post('/edit_card_url', [ColumnController::class, 'edit']);
+Route::delete('/remove_column_url/{id}', [ColumnController::class, 'removecolumn']);
