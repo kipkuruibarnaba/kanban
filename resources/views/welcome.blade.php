@@ -129,46 +129,35 @@
                              `
                     cardMovements.insertAdjacentHTML('beforeend', html);
 
-    const btnShowCard = document.querySelector(`#card-count-${card}`);
-    // console.log(btnShowCard)
-    btnShowCard.addEventListener('click', function(e) {
-        // console.log('hello');
-            e.preventDefault();
-            const btnCard = document.querySelector(`#toggleshow-${card}`)
-            // console.log(btnCard)
-            // btnShowCard.classList.remove('d-none')
-            btnCard.classList.toggle('d-none');
-            // document.querySelector('#toggleshow').toggleClass("d-none");
-            // document.querySelector('#toggleshow').toggleClass( 'className', 'd-none' );
-        });
+                    const btnShowCard = document.querySelector(`#card-count-${card}`);
+                    btnShowCard.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const btnCard = document.querySelector(`#toggleshow-${card}`)
+                        btnCard.classList.toggle('d-none');
+                    });
                 }
             });
 
 
-    const btnRemoveColumn = document.querySelector('#btn-remove-columns');
-    btnRemoveColumn.addEventListener('click', function(e) {
-    e.preventDefault();
-    const requestBody = {
-                columnid: btnRemoveColumn.value
-            }
-            axios.delete('/remove_column_url/'+ btnRemoveColumn.value)
-                .then((response) => {
-                    console.log(response.data);
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-            location.reload();
+            const btnRemoveColumn = document.querySelector('#btn-remove-columns');
+            btnRemoveColumn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const requestBody = {
+                    columnid: btnRemoveColumn.value
+                }
+                axios.delete('/remove_column_url/' + btnRemoveColumn.value)
+                    .then((response) => {
+                        console.log(response.data);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+                location.reload();
 
-        });
+            });
 
         };
-
-
-
-
     </script>
 </body>
 
 </html>
-
