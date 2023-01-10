@@ -120,14 +120,27 @@
                     const html = `
                         <div class="card mt-1 mb-1" id="modaldisplay" style="background-color:E5E5CB;">
                             <div class="card-body">
-                                <h5 class="card-title text-info" id="total-count" >Card ${card}</h5>
+                                <h5 class="card-title text-info" id="card-count-${card}" >Card ${card}</h5>
                                 <input type="hidden" name="cardtitle" class="cardtitle" id="cardtitle" value= ${card}/>
-                                <p class="card-text">The card which is being displayed belongs to column number ${col} and is card number ${card} .</p>
+                                <p class="card-text d-none" id="toggleshow-${card}">The card which is being displayed belongs to column number ${col} and is card number ${card} .</p>
                                 <input type="hidden" name="carddes" class="carddes" id="carddes" value= "The card which is being displayed belongs to column number ${col} and is card number ${card} "/>
                             </div>
                         </div>
                              `
                     cardMovements.insertAdjacentHTML('beforeend', html);
+
+    const btnShowCard = document.querySelector(`#card-count-${card}`);
+    // console.log(btnShowCard)
+    btnShowCard.addEventListener('click', function(e) {
+        // console.log('hello');
+            e.preventDefault();
+            const btnCard = document.querySelector(`#toggleshow-${card}`)
+            // console.log(btnCard)
+            // btnShowCard.classList.remove('d-none')
+            btnCard.classList.toggle('d-none');
+            // document.querySelector('#toggleshow').toggleClass("d-none");
+            // document.querySelector('#toggleshow').toggleClass( 'className', 'd-none' );
+        });
                 }
             });
 
@@ -148,15 +161,8 @@
             location.reload();
 
         });
+
         };
-    //     const btnShowCard = document.querySelector('#total-count');
-    // console.log(btnShowCard)
-    // if(btnShowCard){
-    // btnShowCard.addEventListener('click', function(e) {
-    //         e.preventDefault();
-    //  console.log('hello')
-    //     });
-    // }
 
 
 
