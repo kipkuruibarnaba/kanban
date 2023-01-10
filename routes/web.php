@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ColumnController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::post('/load_items', [ColumnController::class, 'getColumns']);
+Route::post('/add_column_url', [ColumnController::class, 'store']);
+Route::post('/add_card_url', [ColumnController::class, 'storecard']);
+Route::post('/edit_card_url', [ColumnController::class, 'edit']);
