@@ -17,7 +17,7 @@
     </div>
 
     <div class="text-center mt-4">
-        <label class="p-1 costum-class">Made By <strong>Simodev</strong>.</label>
+        <label class="p-1 costum-class">Made By <strong>Barnkip</strong>.</label>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
