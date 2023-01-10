@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
     //All secure URL's
-    Route::post("login",[UserController::class,'index']);
-    });
     Route::get('/getdata', [ColumnController::class, 'getColumns']);
+    });
+    Route::post("login",[UserController::class,'index']);
 
